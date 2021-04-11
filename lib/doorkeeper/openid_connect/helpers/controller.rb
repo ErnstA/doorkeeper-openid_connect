@@ -75,7 +75,8 @@ module Doorkeeper
             when 'login'
               reauthenticate_oidc_resource_owner(owner) if owner
             when 'consent'
-              render :new
+              # render :new  # causes double render error
+              return
             when 'select_account'
               select_account_for_oidc_resource_owner(owner)
             else
